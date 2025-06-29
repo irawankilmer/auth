@@ -7,4 +7,5 @@ type UserModel struct {
 	Password     string
 	TokenVersion string
 	Roles        []RoleModel
+	Profile      ProfileModel
 }

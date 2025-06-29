@@ -34,7 +34,7 @@ func RequireCompletedProfile(profileService service.ProfileService) gin.HandlerF
 			}
 		}
 
-		if strings.TrimSpace(profile.FullName) == "" {
+		if strings.TrimSpace(profile.Profile.FullName) == "" {
 			response.Forbidden(c, "lengkapi nama lengkap terlebih dahulu")
 			return
 		}

@@ -6,5 +6,4 @@ type ProfileResponse struct {
 	FullName string  `json:"full_name"`
 	Address  *string `json:"address"`
 	Gender   *string `json:"gender"`
-	User     UserResponse
 }

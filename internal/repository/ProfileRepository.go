@@ -14,7 +14,7 @@ type ProfileRepository interface {
 	IsUserExists(userID string) (bool, error)
 	Create(profile request.ProfileRequest) error
 	Update(profile request.ProfileRequest) error
-	Me(ctx context.Context, userID string) (*response.ProfileResponse, error)
+	Me(ctx context.Context, userID string) (*response.UserResponse, error)
 }
 
 type profileRepository struct {
@@ -58,10 +58,11 @@ func (r *profileRepository) Update(profile request.ProfileRequest) error {
 	return nil
 }
 
-func (r *profileRepository) Me(ctx context.Context, userID string) (*response.ProfileResponse, error) {
-	var profile response.ProfileResponse
-	var address, gender sql.NullString
+func (r *profileRepository) Me(ctx context.Context, userID string) (*response.UserResponse, error) {
+	var user response.UserResponse
 	err := dbtx.WithTxContext(ctx, r.db, func(ctx context.Context, tx *sql.Tx) error {
+		var profile response.ProfileResponse
+		var address, gender sql.NullString
 		err := tx.QueryRowContext(ctx, `SELECT id, user_id, full_name, address, gender FROM profiles WHERE user_id = ?`, userID).
 			Scan(&profile.ID, &profile.UserID, &profile.FullName, &address, &gender)
 		if err != nil {
@@ -84,7 +85,6 @@ func (r *profileRepository) Me(ctx context.Context, userID string) (*response.Pr
 			profile.Gender = nil
 		}
 
-		var user response.UserResponse
 		err = tx.QueryRowContext(ctx, `SELECT id, username, email FROM users WHERE id = ?`, profile.UserID).
 			Scan(&user.ID, &user.Username, &user.Email)
 		if err != nil {
@@ -95,7 +95,7 @@ func (r *profileRepository) Me(ctx context.Context, userID string) (*response.Pr
 			return apperror.New(apperror.CodeDBError, "query users gagal", err)
 		}
 
-		profile.User = user
+		user.Profile = profile
 
 		return nil
 	})
@@ -104,5 +104,5 @@ func (r *profileRepository) Me(ctx context.Context, userID string) (*response.Pr
 		return nil, err
 	}
 
-	return &profile, nil
+	return &user, nil
 }

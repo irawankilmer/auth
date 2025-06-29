@@ -4,9 +4,9 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NTEyODQyM
 Content-Type: application/json
 
 {
-    "full_name": "Saya Tamu Pertama",
-    "address": "Bandung - Jawa Barat",
-    "gender": "laki-laki"
+    "full_name": "Abdi tamu ka hiji",
+    "address": "Sumedang",
+    "gender": "perempuan"
 }
 
 ### Me

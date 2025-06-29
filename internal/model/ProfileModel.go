@@ -6,5 +6,4 @@ type ProfileModel struct {
 	FullName string
 	Address  *string
 	Gender   *string
-	User     UserModel
 }

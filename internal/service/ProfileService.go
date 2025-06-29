@@ -9,7 +9,7 @@ import (
 
 type ProfileService interface {
 	Setting(req request.ProfileRequest) error
-	Me(ctx context.Context, userID string) (*response.ProfileResponse, error)
+	Me(ctx context.Context, userID string) (*response.UserResponse, error)
 }
 
 type profileService struct {
@@ -46,6 +46,6 @@ func (s *profileService) Setting(req request.ProfileRequest) error {
 	return nil
 }
 
-func (s *profileService) Me(ctx context.Context, userID string) (*response.ProfileResponse, error) {
+func (s *profileService) Me(ctx context.Context, userID string) (*response.UserResponse, error) {
 	return s.profileRepo.Me(ctx, userID)
 }
