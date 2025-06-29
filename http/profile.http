@@ -1,0 +1,14 @@
+### Setting
+POST http://localhost:8080/api/profile/setting
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NTEyODQyMjYsImlhdCI6MTc1MTE5NzgyNiwicm9sZXMiOlsidGFtdSJdLCJ0b2tlbl92ZXJzaW9uIjoiMDFKWVhSQ0ZSRDI4M0ZQWkJINDZQOU1FQlgiLCJ1c2VyX2lkIjoiMDFKWVhCQkE0OVJKVE5ON1k1M0NKRzlLSzIifQ.AxNnhFscjevhwttoZWADIZP2V-ihuPZsK6AxSlgKgDo
+Content-Type: application/json
+
+{
+    "full_name": "Saya Tamu Pertama",
+    "address": "Bandung - Jawa Barat",
+    "gender": "laki-laki"
+}
+
+### Me
+GET http://localhost:8080/api/profile/me
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NTEyODQyMjYsImlhdCI6MTc1MTE5NzgyNiwicm9sZXMiOlsidGFtdSJdLCJ0b2tlbl92ZXJzaW9uIjoiMDFKWVhSQ0ZSRDI4M0ZQWkJINDZQOU1FQlgiLCJ1c2VyX2lkIjoiMDFKWVhCQkE0OVJKVE5ON1k1M0NKRzlLSzIifQ.AxNnhFscjevhwttoZWADIZP2V-ihuPZsK6AxSlgKgDo

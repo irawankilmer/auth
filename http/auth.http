@@ -1,0 +1,22 @@
+### Login
+POST http://localhost:8080/api/auth/login
+Content-Type: application/json
+
+{
+    "identifier": "tamuke1",
+    "password": "tamuke1"
+}
+
+### Registrasi
+POST http://localhost:8080/api/auth/register
+Content-Type: application/json
+
+{
+    "username": "tamuke1",
+    "email": "tamuke1@gmail.com",
+    "password": "tamuke1"
+}
+
+### Logout
+POST http://localhost:8080/api/auth/logout
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NTEyODQyMjYsImlhdCI6MTc1MTE5NzgyNiwicm9sZXMiOlsidGFtdSJdLCJ0b2tlbl92ZXJzaW9uIjoiMDFKWVhSQ0ZSRDI4M0ZQWkJINDZQOU1FQlgiLCJ1c2VyX2lkIjoiMDFKWVhCQkE0OVJKVE5ON1k1M0NKRzlLSzIifQ.AxNnhFscjevhwttoZWADIZP2V-ihuPZsK6AxSlgKgDo
